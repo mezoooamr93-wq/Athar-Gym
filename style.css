@@ -1,0 +1,561 @@
+/* style.css - Athar Mazen Gym - Glassmorphism + Bento Grid Premium Design */
+
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:ital,wght@0,400;0,500;0,700;1,400&display=swap');
+
+:root {
+  --bg-primary: #0a0a0a;
+  --bg-secondary: #111;
+  --accent-red: #e63946;
+  --accent-rose: #ff4d6d;
+  --text-primary: #ffffff;
+  --text-secondary: #b8bcc5;
+  --glass-bg: rgba(255, 255, 255, 0.05);
+  --glass-border: rgba(255, 255, 255, 0.08);
+  --blur: blur(20px);
+  --shadow-glow: 0 8px 32px rgba(230, 57, 70, 0.15);
+  --radius: 24px;
+  --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'DM Sans', sans-serif;
+  background: linear-gradient(135deg, var(--bg-primary) 0%, var(--bg-secondary) 100%);
+  color: var(--text-primary);
+  min-height: 100vh;
+  overflow-x: hidden;
+  position: relative;
+}
+
+body::before {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(circle at 20% 80%, rgba(230,57,70,0.1) 0%, transparent 50%),
+              radial-gradient(circle at 80% 20%, rgba(230,57,70,0.05) 0%, transparent 50%);
+  pointer-events: none;
+  z-index: -1;
+}
+
+/* Glassmorphism Base */
+.glass {
+  background: var(--glass-bg);
+  backdrop-filter: var(--blur);
+  border: 1px solid var(--glass-border);
+  border-radius: var(--radius);
+  box-shadow: 0 8px 32px rgba(0,0,0,0.3);
+}
+
+/* Sidebar Navigation */
+.sidebar {
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 280px;
+  height: 100vh;
+  padding: 2rem 1.5rem;
+  background: var(--glass-bg);
+  backdrop-filter: var(--blur);
+  border-right: 1px solid var(--glass-border);
+  z-index: 1000;
+  transition: var(--transition);
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin-bottom: 3rem;
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: clamp(1.5rem, 5vw, 2.5rem);
+  font-weight: 700;
+  color: var(--accent-red);
+  text-shadow: 0 0 20px var(--accent-red);
+}
+
+.logo::before {
+  content: '🔥';
+  font-size: 1.2em;
+  animation: flicker 2s infinite;
+}
+
+.nav-item {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 1rem 1.5rem;
+  margin-bottom: 0.5rem;
+  border-radius: var(--radius);
+  color: var(--text-secondary);
+  text-decoration: none;
+  font-weight: 500;
+  transition: var(--transition);
+  cursor: pointer;
+}
+
+.nav-item:hover, .nav-item.active {
+  background: rgba(230,57,70,0.1);
+  color: var(--accent-red);
+  box-shadow: var(--shadow-glow);
+  transform: translateX(8px);
+}
+
+.nav-item::before {
+  content: '🏠'; /* Default icon, override per item */
+  font-size: 1.2em;
+  width: 24px;
+}
+
+/* Specific icons */
+.nav-home::before { content: '🏠'; }
+.nav-exercises::before { content: '💪'; }
+.nav-workout::before { content: '📅'; }
+.nav-nutrition::before { content: '🥗'; }
+.nav-women::before { content: '👑'; }
+
+/* Main Content */
+.main-content {
+  margin-left: 280px;
+  padding: 2rem;
+  min-height: 100vh;
+  animation: fadeInUp 0.8s ease;
+}
+
+/* Bento Grid */
+.bento-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 1.5rem;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+.bento-item {
+  aspect-ratio: 1;
+  display: flex;
+  flex-direction: column;
+  padding: 2rem;
+  transition: var(--transition);
+}
+
+.bento-item:hover {
+  transform: translateY(-8px);
+  box-shadow: var(--shadow-glow);
+}
+
+.bento-2x1 { grid-column: span 2; aspect-ratio: 2; }
+.bento-1x2 { grid-row: span 2; aspect-ratio: 1 / 2; }
+.bento-2x2 { grid-column: span 2; grid-row: span 2; aspect-ratio: 1; }
+
+.fit-content {
+  height: auto;
+  aspect-ratio: unset;
+}
+
+/* Buttons */
+.btn {
+  background: var(--accent-red);
+  color: white;
+  border: none;
+  padding: 0.75rem 1.5rem;
+  border-radius: 12px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: var(--transition);
+  position: relative;
+  overflow: hidden;
+}
+
+.btn:hover {
+  box-shadow: var(--shadow-glow);
+  transform: translateY(-2px);
+}
+
+.btn.ripple::after {
+  content: '';
+  position: absolute;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.3);
+  transform: scale(0);
+  animation: ripple 0.6s linear;
+}
+
+.btn-primary { background: var(--accent-red); }
+.btn-secondary { background: transparent; border: 1px solid var(--glass-border); color: var(--text-primary); }
+
+/* Cards */
+.card {
+  @extend .glass;
+  padding: 2rem;
+  transition: var(--transition);
+}
+
+.card:hover {
+  transform: translateY(-4px);
+}
+
+/* Login Specific */
+.login-container {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 2rem;
+  margin-left: 0 !important; /* No sidebar on login */
+}
+
+.gender-toggle {
+  display: flex;
+  gap: 1.5rem;
+  max-width: 600px;
+  width: 100%;
+}
+
+.gender-card {
+  flex: 1;
+  padding: 3rem 2rem;
+  text-align: center;
+  cursor: pointer;
+  transition: var(--transition);
+}
+
+.gender-card.active {
+  background: rgba(230,57,70,0.15);
+  border-color: var(--accent-red);
+  box-shadow: var(--shadow-glow);
+}
+
+.gender-card h3 {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 2rem;
+  margin-bottom: 1rem;
+}
+
+/* Workout Day - Expandable Cards */
+.workout-day {
+  padding: 2rem;
+  cursor: pointer;
+  transition: var(--transition);
+  height: 200px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+.workout-day:hover {
+  transform: translateY(-4px);
+}
+
+.workout-day.active,
+.workout-day.expanded {
+  background: rgba(230,57,70,0.1);
+  box-shadow: var(--shadow-glow);
+}
+
+.workout-day.expanded {
+  height: auto !important;
+  grid-row: span 2;
+}
+
+.exercises-grid {
+  display: none;
+  grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+  gap: 0.75rem;
+  margin-top: 1rem;
+  padding-top: 1rem;
+  border-top: 1px solid var(--glass-border);
+}
+
+.workout-day.expanded .exercises-grid {
+  display: grid;
+}
+
+.exercise-mini {
+  @extend .glass;
+  padding: 1rem;
+  text-align: center;
+  border-radius: 12px;
+  transition: var(--transition);
+}
+
+.exercise-mini:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-glow);
+}
+
+.exercise-mini .badges {
+  display: flex;
+  gap: 0.5rem;
+  justify-content: center;
+  margin-top: 0.5rem;
+  flex-wrap: wrap;
+}
+
+.exercise-mini h5 {
+  font-size: 0.9rem;
+  margin: 0.5rem 0;
+  font-weight: 600;
+}
+
+.btn-sm {
+  padding: 0.4rem 0.8rem;
+  font-size: 0.8rem;
+}
+
+.save-mini-btn.saved {
+  background: var(--text-secondary);
+  cursor: not-allowed;
+}
+
+.save-mini-btn:hover:not(.saved) {
+  background: var(--accent-red);
+}
+
+/* Timer */
+.timer-container {
+  grid-column: span 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+}
+
+#timer {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 4rem;
+  color: var(--accent-red);
+  text-shadow: 0 0 20px currentColor;
+  animation: pulse 1s infinite;
+}
+
+/* Contact Footer */
+.contact-footer {
+  position: relative;
+  background: var(--glass-bg);
+  backdrop-filter: var(--blur);
+  border-top: 1px solid var(--glass-border);
+  padding: 1.5rem;
+  margin-top: 3rem;
+}
+
+.contact-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 1rem;
+  max-width: 800px;
+  margin: 0 auto 1rem;
+}
+
+.contact-card {
+  text-align: center;
+  padding: 1.5rem 1rem;
+}
+
+.contact-card a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.phone-whatsapp {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.contact-link {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0.75rem;
+  border-radius: 12px;
+  transition: var(--transition);
+}
+
+.contact-link:hover {
+  background: rgba(255,255,255,0.05);
+  transform: translateY(-2px);
+}
+
+.insta-link:hover {
+  background: linear-gradient(135deg, #feda75, #fa7e1e, #d62976);
+  box-shadow: 0 8px 32px rgba(214,41,118,0.4);
+}
+
+/* Women Page Overrides */
+body.women-page {
+  --accent-red: var(--accent-rose);
+}
+
+body.women-page .logo {
+  color: var(--accent-rose);
+}
+
+/* Animations */
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(30px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes ripple {
+  to { transform: scale(4); opacity: 0; }
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.7; }
+}
+
+@keyframes flicker {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.8; }
+}
+
+.stagger {
+  animation: fadeInUp 0.6s ease forwards;
+}
+
+.stagger:nth-child(1) { animation-delay: 0.1s; }
+.stagger:nth-child(2) { animation-delay: 0.2s; }
+.stagger:nth-child(3) { animation-delay: 0.3s; }
+
+/* Responsive */
+@media (max-width: 1024px) {
+  .sidebar {
+    transform: translateX(-100%);
+  }
+  
+  .main-content {
+    margin-left: 0;
+    padding: 1rem;
+  }
+  
+  .sidebar.mobile-open {
+    transform: translateX(0);
+  }
+}
+
+@media (max-width: 768px) {
+  .bento-grid {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+  
+  .gender-toggle {
+    flex-direction: column;
+  }
+}
+
+/* Utility */
+/* Premium VIP Section */
+:root {
+  --gold: #d4af37;
+  --gold-dark: #b8962e;
+  --vip-glow: 0 0 20px var(--gold);
+}
+
+.premium-section {
+  margin: 4rem 0;
+  padding: 2rem 0;
+}
+
+.vip-card {
+  @extend .glass;
+  background: linear-gradient(135deg, rgba(212, 175, 55, 0.1), var(--glass-bg));
+  border: 1px solid var(--gold);
+  box-shadow: var(--vip-glow), 0 8px 32px rgba(0,0,0,0.4);
+  max-width: 400px;
+  margin: 0 auto;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.vip-card::before {
+  content: '👑';
+  position: absolute;
+  top: -20px;
+  right: -20px;
+  font-size: 3rem;
+  opacity: 0.1;
+  animation: float 3s ease-in-out infinite;
+}
+
+.vip-badge {
+  background: var(--gold);
+  color: var(--bg-primary);
+  padding: 0.25rem 1rem;
+  border-radius: 20px;
+  font-weight: 700;
+  font-size: 0.8rem;
+  display: inline-block;
+  margin-bottom: 1rem;
+  box-shadow: 0 4px 12px rgba(212, 175, 55, 0.3);
+}
+
+.coach-name {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 2rem;
+  color: var(--gold);
+  margin-bottom: 0.5rem;
+  text-shadow: var(--vip-glow);
+}
+
+.vip-phone {
+  color: var(--text-primary);
+  font-size: 1.1rem;
+  margin: 1rem 0;
+  display: block;
+  text-decoration: none;
+}
+
+.vip-whatsapp {
+  background: #25D366;
+  color: white;
+  padding: 1rem 2rem;
+  border-radius: 25px;
+  font-weight: 600;
+  text-decoration: none;
+  display: inline-block;
+  margin-top: 1rem;
+  box-shadow: 0 6px 20px rgba(37, 211, 102, 0.3);
+  transition: var(--transition);
+}
+
+.vip-whatsapp:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(37, 211, 102, 0.4);
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-10px); }
+}
+
+.text-glow {
+  text-shadow: 0 0 20px currentColor;
+}
+
+.badge {
+  background: var(--accent-red);
+  color: white;
+  padding: 0.25rem 0.75rem;
+  border-radius: 20px;
+  font-size: 0.8rem;
+  font-weight: 600;
+}
+
+.mb-1 { margin-bottom: 1rem; }
+.mb-2 { margin-bottom: 2rem; }
+.text-center { text-align: center; }
+.font-bold { font-weight: 700; }
+.font-display { font-family: 'Bebas Neue', sans-serif; }

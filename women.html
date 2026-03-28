@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="ar" class="women-page">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>تدريب النساء - أثر مازن</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body class="women-page" onload="loadWomenPage();">
+  
+  <nav class="sidebar">
+    <div class="logo">أثر MAZEN</div>
+    <a href="index.html" class="nav-item nav-home">🏠 الرئيسية</a>
+    <a href="exercises.html" class="nav-item nav-exercises">💪 تمارين</a>
+    <a href="workout.html" class="nav-item nav-workout">📅 برنامج</a>
+    <a href="nutrition.html" class="nav-item nav-nutrition">🥗 تغذية</a>
+    <a href="women.html" class="nav-item nav-women active">👑 تدريب النساء</a>
+  </nav>
+
+  <main class="main-content">
+    <section class="hero stagger mb-8 text-center">
+      <h1 class="font-display text-glow" style="font-size: clamp(3rem, 8vw, 5rem);">تدربي زي الملكة 👑</h1>
+      <p style="font-size: 1.5rem; opacity: 0.9;">مصمم لها. للأداء القوي.</p>
+      <span class="username text-secondary" style="font-size: 1.2rem;"></span>
+    </section>
+
+    <!-- Workout Plan Table + Timer (same as workout.html) -->
+    <header class="mb-4">
+      <h2 class="font-display" style="font-size: 3rem;">برنامجك الأسبوعي</h2>
+    </header>
+    <div class="bento-grid" id="women-workout-days">
+      <!-- Dynamic weekly plan for women -->
+    </div>
+
+    <div class="timer-container glass card mt-6 p-6" style="max-width: 350px; margin: 2rem auto;">
+      <div id="women-timer" style="font-family: 'Bebas Neue'; font-size: 4rem; color: var(--accent-rose);">00:00</div>
+      <div style="display: flex; gap: 1rem; justify-content: center;">
+        <button class="btn ripple" onclick="womenStartTimer()">ابدأ</button>
+        <button class="btn btn-secondary ripple" onclick="womenPauseTimer()">إيقاف</button>
+        <button class="btn btn-secondary ripple" onclick="womenResetTimer()">إعادة</button>
+      </div>
+    </div>
+
+    <!-- Category tabs for exercises -->
+    <div id="women-tabs" class="flex gap-4 mb-8" style="display: flex; gap: 1rem; overflow-x: auto; padding: 1rem 0;">
+      <button class="btn ripple active" onclick="showWomenCategory('glutes')">🍑 أرداف ومؤخرة</button>
+      <button class="btn ripple" onclick="showWomenCategory('legs')">🦵 أرجل وفخاد</button>
+      <button class="btn ripple" onclick="showWomenCategory('arms')">💪 ذراعين</button>
+      <button class="btn ripple" onclick="showWomenCategory('core')">🧘 بطن ومرونة</button>
+      <button class="btn ripple" onclick="showWomenCategory('cardio')">🔥 كارديو</button>
+    </div>
+
+    <!-- Dynamic exercises grid with levels: beginner/medium/advanced + save -->
+    <div class="bento-grid" id="women-exercises-grid">
+      <!-- Loads: مُبتدئ + حفظ | متوسط + حفظ | متقدم + حفظ -->
+    </div>
+
+    <!-- Saved women plan -->
+    <section class="mt-8">
+      <h2 class="font-display mb-4" style="font-size: 2.5rem;">خطتك الخاصة</h2>
+      <div id="women-plan" class="bento-grid">
+        <div class="bento-item bento-2x2 glass card text-center p-8">
+          <p>أضيفي تمارين لبناء خطتك 👑</p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="contact-footer">
+    <div class="contact-grid">
+      <div class="contact-card glass">
+        <h4>📞 هاتف وواتساب</h4>
+        <div class="phone-whatsapp">
+          <a href="tel:+201116404093" class="contact-link" target="_blank">📞 ٢٠١١١٦٤٠٤٠٩٣</a>
+          <a href="https://wa.me/201116404093" class="contact-link" target="_blank">💬 واتساب</a>
+        </div>
+      </div>
+      <div class="contact-card glass">
+        <h4>📸 إنستجرام</h4>
+        <a href="https://www.instagram.com/zonaaa__1" class="contact-link insta-link" target="_blank">
+          @zonaaa__1
+        </a>
+      </div>
+    </div>
+    <div style="text-align: center; opacity: 0.7; font-size: 0.9rem;">
+      © ٢٠٢٥ أثر مازن. جميع الحقوق محفوظة.
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>

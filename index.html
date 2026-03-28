@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>أثر مازن - Athar Mazen Gym</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body onload="loadUsername(); loadGender();">
+  
+  <!-- Sidebar -->
+  <nav class="sidebar">
+    <div class="logo">أثر MAZEN</div>
+    <a href="index.html" class="nav-item nav-home active">🏠 Home</a>
+    <a href="exercises.html" class="nav-item nav-exercises">💪 Exercises</a>
+    <a href="workout.html" class="nav-item nav-workout">📅 Workout</a>
+    <a href="nutrition.html" class="nav-item nav-nutrition">🥗 Nutrition</a>
+    <a href="women.html" class="nav-item nav-women">👑 Women's Training</a>
+  </nav>
+
+  <main class="main-content">
+    <section class="hero stagger">
+      <h1 class="font-display text-glow" style="font-size: clamp(3rem, 8vw, 6rem); margin-bottom: 1rem;">
+        Welcome 👋
+      </h1>
+      <p class="hero-subtitle text-secondary mb-2" style="font-size: 1.5rem;"></p>
+    </section>
+    
+    <div class="text-center mb-8">
+      <a href="exercises.html" class="btn btn-primary ripple" style="font-size: 1.4rem; padding: 0.75rem 2.5rem;">Explore Now 🔥</a>
+    </div>
+
+    <div class="flex gap-4 mb-8" style="max-width: 1400px; margin: 0 auto;">
+      <div class="flex-1">
+        <div class="bento-grid">
+          <div class="bento-item glass stagger card" style="padding: 0.25rem; height: 120px;">
+            <h3 style="font-size: 0.9rem; margin-bottom: 0.2rem;">Calories</h3>
+            <input id="calories-input" type="number" min="0" value="0" style="font-size: 1.2rem; color: var(--accent-red); background: transparent; border: none; text-align: center; width: 100%;">
+          </div>
+        </div>
+      </div>
+      <div class="flex-1">
+        <section class="premium-section">
+          <h2 class="font-display text-center mb-6" style="font-size: 2.5rem;">Premium</h2>
+          <div class="vip-card">
+            <span class="vip-badge">⭐ المميز</span>
+            <div class="text-4xl mb-3">👑</div>
+            <h3 class="coach-name">Captain Maher</h3>
+            <p style="opacity: 0.8; margin-bottom: 1rem;">Al Mansoura</p>
+            <a href="tel:+201029645076" class="vip-phone">📞 +20 10 296 45076</a>
+            <a href="https://wa.me/201029645076" target="_blank" class="vip-whatsapp">
+              💬 WhatsApp
+            </a>
+          </div>
+        </section>
+      </div>
+    </div>
+  </main>
+
+  <!-- Contact Footer -->
+  <footer class="contact-footer">
+    <div class="contact-grid">
+      <div class="contact-card glass">
+        <h4>📞 Phone &amp; WhatsApp</h4>
+        <div class="phone-whatsapp">
+          <a href="tel:+201116404093" class="contact-link" target="_blank">📞 +20 111 640 4093</a>
+          <a href="https://wa.me/201116404093" class="contact-link" target="_blank">💬 WhatsApp</a>
+        </div>
+      </div>
+      <div class="contact-card glass">
+        <h4>📸 Instagram</h4>
+        <a href="https://www.instagram.com/zonaaa__1" class="contact-link insta-link" target="_blank">
+          @zonaaa__1
+        </a>
+      </div>
+    </div>
+    <div style="text-align: center; opacity: 0.7; font-size: 0.9rem;">
+      © 2025 أثر مازن — Athar Mazen. All rights reserved.
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>

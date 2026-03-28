@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Workout - أثر مازن Gym</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body onload="loadUsername(); loadGender(); loadGenderWorkoutPlan();">
+  
+  <!-- Sidebar same -->
+  <nav class="sidebar">
+    <div class="logo">أثر MAZEN</div>
+    <a href="index.html" class="nav-item nav-home">🏠 Home</a>
+    <a href="exercises.html" class="nav-item nav-exercises">💪 Exercises</a>
+    <a href="workout.html" class="nav-item nav-workout active">📅 Workout</a>
+    <a href="nutrition.html" class="nav-item nav-nutrition">🥗 Nutrition</a>
+    <a href="women.html" class="nav-item nav-women">👑 Women's Training</a>
+  </nav>
+
+  <main class="main-content">
+    <header class="mb-4">
+      <h1 class="font-display" style="font-size: 3.5rem;">Your Weekly Plan</h1>
+    </header>
+
+    <div class="day-labels mb-4 flex gap-2 flex-wrap">
+      <span class="day-label">Day 1: السبت</span>
+      <span class="day-label">Day 2: الأحد</span>
+      <span class="day-label">Day 3: الاثنين</span>
+      <span class="day-label">Day 4: الثلاثاء</span>
+      <span class="day-label">Day 5: الأربعاء</span>
+      <span class="day-label">Day 6: الخميس</span>
+      <span class="day-label">Day 7: الجمعة</span>
+    </div>
+    <div class="bento-grid" id="workout-days">
+      <!-- Dynamic weekly plan cards -->
+    </div>
+  </main>
+
+  <!-- Footer same -->
+  <footer class="contact-footer">
+    <div class="contact-grid">
+      <div class="contact-card glass">
+        <h4>📞 Phone & WhatsApp</h4>
+        <div class="phone-whatsapp">
+          <a href="tel:+201116404093" class="contact-link" target="_blank">📞 +20 111 640 4093</a>
+          <a href="https://wa.me/201116404093" class="contact-link" target="_blank">💬 WhatsApp</a>
+        </div>
+      </div>
+      <div class="contact-card glass">
+        <h4>📸 Instagram</h4>
+        <a href="https://www.instagram.com/zonaaa__1" class="contact-link insta-link" target="_blank">
+          @zonaaa__1
+        </a>
+      </div>
+    </div>
+    <div style="text-align: center; opacity: 0.7; font-size: 0.9rem;">
+      © 2025 أثر مازن — Athar Mazen. All rights reserved.
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
